@@ -1,0 +1,131 @@
+<!--Reseptinlisäyslomake-->
+<div class="container-fluid">
+  <h3>Muokkaa Reseptiä</h3>
+  <!--{{ myForm.value | json }}-->
+  <form [formGroup]="myForm" (ngSubmit)="submitRecipeForm()">
+    <div class="form-group col-sm-4">
+      <label for="recipeID">Reseptin ID</label>
+      <input
+        formControlName="id"
+        type="text"
+        class="form-control"
+        id="recipeID"
+      />
+    </div>
+
+    <div class="form-group col-sm-4">
+      <label for="recipeName">Reseptin nimi</label>
+      <input
+        [class.is-invalid]="
+          myForm.get('name')?.invalid && myForm.get('name')?.touched
+        "
+        formControlName="name"
+        type="text"
+        class="form-control"
+        id="recipeName"
+      />
+      <small
+        [class.d-none]="
+          myForm.get('name')?.valid || myForm.get('name')?.untouched
+        "
+        class="text-danger"
+        >Reseptin nimi vaaditaan</small
+      >
+    </div>
+
+    <div class="form-group col-sm-4">
+      <label for="recipeAuthor">Reseptin tekijä</label>
+      <input
+        [class.is-invalid]="
+          myForm.get('author')?.invalid && myForm.get('author')?.touched
+        "
+        formControlName="author"
+        type="text"
+        class="form-control"
+        id="recipeAuthor"
+      />
+      <small
+        [class.d-none]="
+          myForm.get('author')?.valid || myForm.get('author')?.untouched
+        "
+        class="text-danger"
+        >Reseptin tekijä vaaditaan</small
+      >
+    </div>
+
+    <!--Ainesosat -->
+    <form [formGroup]="myForm" (ngSubmit)="addRecipeSupplyItem()">
+      <div formArrayName="supplies">
+        <div class="form-group col-sm-4">
+          <label>Ainesosat:</label>
+        </div>
+        <div
+          class="form-group"
+          *ngFor="let _ of supplies?.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <div class="form-group">
+            <label>Ainesosan nimi </label><br />
+            <input
+              formControlName="name"
+              type="text"
+              class="form-control-sm"
+              id="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Ainesosan määrä </label><br />
+            <input
+              formControlName="quantity"
+              type="text"
+              class="form-control-sm"
+              id="quantity"
+            />
+          </div>
+          <button class="btn btn-primary" (click)="deleteSupply(i)">
+            Poista
+          </button>
+        </div>
+      </div>
+      <!--Lisää ainesosa buttoni-->
+      <div class="form-group">
+        <button
+          [disabled]="!supplies.valid"
+          class="btn btn-primary"
+          type="button"
+          (click)="addRecipeSupplyItems()"
+        >
+          Lisää ainesosa
+        </button>
+      </div>
+    </form>
+
+    <div class="form-group col-sm-4">
+      <label for="recipeRecipe">Reseptin ohje</label>
+      <textarea
+        [class.is-invalid]="
+          myForm.get('recipe')?.invalid && myForm.get('recipe')?.touched
+        "
+        formControlName="recipe"
+        type="text"
+        class="form-control"
+        rows="5"
+        id="recipeRecipe"
+      >
+      </textarea>
+      <small
+        [class.d-none]="
+          myForm.get('recipe')?.valid || myForm.get('recipe')?.untouched
+        "
+        class="text-danger"
+        >Reseptin ohje vaaditaan</small
+      >
+    </div>
+    <!--Buttoni jolla lomake lähetetään-->
+    <button class="btn btn-primary" type="submit">Lähetä</button>
+    <button class="btn btn-primary" type="button" (click)="goBack()">
+      Takaisin
+    </button>
+  </form>
+</div>

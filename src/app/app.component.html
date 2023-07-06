@@ -1,0 +1,20 @@
+<app-navbar></app-navbar><br />
+<div class="container">
+  <!--navigointipainikkeet-->
+  <div class="nav">
+    <a routerLink="/dashboard" class="btn btn-primary" role="button">Etusivu</a>
+
+    <a routerLink="/recipes" class="btn btn-primary" role="button">Reseptit</a>
+
+    <a routerLink="/addrecipe" class="btn btn-primary" role="button"
+      >Lisää resepti</a
+    >
+  </div>
+
+  <!--Tähän tulevat reittitaulukossa olevat komponentit.-->
+  <router-outlet></router-outlet>
+
+  <!--Tämä komponentti esittää lokia sovelluksen tapahtumista.
+   <app-messages></app-messages> 
+  -->
+</div>

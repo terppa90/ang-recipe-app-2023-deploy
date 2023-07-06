@@ -1,0 +1,38 @@
+a {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+h3 {
+  text-align: left;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-family: "Castoro Titling", cursive;
+}
+.container {
+  display: block;
+  float: left;
+  margin: 0 0 0.5rem 0;
+}
+.card-img-top {
+  opacity: 90%;
+  /* transform: scale(); */
+}
+.card-title {
+  /* font-family: "Castoro Titling", cursive; */
+}
+.card-text {
+  /* font-family: Arial, sans-serif; */
+}
+
+.material-symbols-outlined {
+  margin-left: 2rem;
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}

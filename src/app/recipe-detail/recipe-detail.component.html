@@ -1,0 +1,17 @@
+<!--Yksittäisen reseptin tiedot-->
+<div *ngIf="recipe">
+  <h2>{{ recipe.name | uppercase }}</h2>
+  <div>
+    <label>Reseptin nimi: </label><br />
+    <div>{{ recipe.name }}</div>
+  </div>
+  <div><label>Tekijä: </label><br />{{ recipe.author }}</div>
+  <div>
+    <label>Ainesosat: </label><br />
+    <li *ngFor="let recipes of recipe.supplies">
+      {{ recipes.quantity }} {{ recipes.name }}
+    </li>
+  </div>
+  <div><label>Resepti: </label><br />{{ recipe.recipe }}</div>
+  <button (click)="goBack()">Takaisin</button>
+</div>

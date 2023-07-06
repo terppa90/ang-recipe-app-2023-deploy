@@ -1,0 +1,46 @@
+<!--Rekisteröitymis- ja kirjautumisnavbar-->
+<!-- <nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <div class="navbar-header">
+    <a class="navbar-brand">Reseptirekisteri</a>
+  </div> -->
+
+<!-- Toggler/collapsibe Button -->
+<!-- <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapsibleNavbar"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register">Rekisteröidy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login">Kirjaudu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+<nav class="nav nav-pills nav-fill bg-primary">
+  <a class="nav-item nav-link" routerLink="/dashboard">Etusivu</a>
+  <a *ngIf="!login" class="nav-item nav-link" routerLink="/register"
+    >Rekisteröidy</a
+  >
+  <a *ngIf="!login" class="nav-item nav-link" routerLink="/login">Kirjaudu</a>
+
+  <a
+    *ngIf="login"
+    class="nav-item nav-link"
+    routerLink="/login"
+    (click)="doLogout()"
+    >Logout
+  </a>
+</nav>

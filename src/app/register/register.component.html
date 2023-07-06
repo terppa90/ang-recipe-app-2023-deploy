@@ -1,0 +1,46 @@
+<!--Rekisteröitymislomake-->
+<div class="container-fluid">
+  <div class="d-flex mt-3 mb-3">Rekisteröityminen</div>
+  <form action="/register" method="POST">
+    <div class="form-group col-sm-4">
+      <label for="username">Tunnus:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        id="username"
+        required
+        [(ngModel)]="registerUserData.username"
+        ngModel
+      />
+      <label for="email">Email:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        id="email"
+        required
+        [(ngModel)]="registerUserData.email"
+        ngModel
+      />
+      <label for="password">Salasana:</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        id="password"
+        required
+        [(ngModel)]="registerUserData.password"
+        ngModel
+      /><br />
+      <!--Rekisteröitymis button-->
+      <button (click)="registerUser()" type="submit" class="btn btn-light">
+        Rekisteröidy
+      </button>
+    </div>
+  </form>
+  <!--Linkki kirjautumis välilehteen-->
+  <div class="login">
+    <a href="/login">Kirjaudu</a>
+  </div>
+</div>

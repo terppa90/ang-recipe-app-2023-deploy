@@ -1,0 +1,57 @@
+a {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+  width: 50%;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+h3 {
+  text-align: left;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-family: "Castoro Titling", cursive;
+}
+.container {
+  display: block;
+  float: left;
+  margin: 0 0 0.5rem 0;
+}
+.card {
+  float: inline-start;
+}
+.card-body {
+  position: relative;
+}
+.card:hover {
+  /* border-color: black; */
+  color: gray;
+  font-weight: bold;
+  cursor: pointer;
+}
+button {
+  align-self: center;
+  margin-right: 0.25rem;
+  padding: 2px;
+  display: block;
+  position: relative;
+  float: right;
+}
+button.btn.btn-outline-secondary {
+  padding: 5px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.material-symbols-outlined {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  /* align-content: center;
+  align-items: center;
+  align-self: center; */
+}

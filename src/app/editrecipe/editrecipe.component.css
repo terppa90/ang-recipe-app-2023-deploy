@@ -1,0 +1,21 @@
+.mat-form-field {
+  margin-right: 0.5em;
+  display: block;
+}
+
+.container-fluid {
+  margin-top: 2rem;
+}
+
+h3 {
+  margin-bottom: 1rem;
+  font-family: "Castoro Titling", cursive;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.btn.btn-primary {
+  margin-right: 0.1em;
+}

@@ -1,0 +1,64 @@
+<!--Ainesosan lisäys lomakkeelle tapahtuu tässä-->
+<form [formGroup]="childForm">
+  <h4>Ainesosa: {{ arrayIndex + 1 }}</h4>
+
+  <div class="form-group">
+    <label>Ainesosan nimi </label>
+    <input
+      [class.is-invalid]="
+        childForm.get('name')?.invalid && childForm.get('name')?.touched
+      "
+      formControlName="name"
+      type="text"
+      class="form-control-sm"
+      id="name"
+    />
+    <small
+      [class.d-none]="
+        childForm.get('name')?.valid || childForm.get('name')?.untouched
+      "
+      class="text-danger"
+      >Ainesosan nimi vaaditaan</small
+    >
+
+    <div class="form-group">
+      <label
+        >Ainesosan määrä
+        <small
+          class="text-danger"
+          *ngIf="quantityField?.hasError('required') && quantityField.dirty"
+        >
+          Määrä vaaditaan.
+        </small>
+      </label>
+      <input
+        [class.is-invalid]="
+          childForm.get('quantity')?.invalid &&
+          childForm.get('quantity')?.touched
+        "
+        formControlName="quantity"
+        type="text"
+        class="form-control-sm"
+        id="quantity"
+      />
+      <small
+        [class.d-none]="
+          childForm.get('quantity')?.valid ||
+          childForm.get('quantity')?.untouched
+        "
+        class="text-danger"
+        >Ainesosan määrä vaaditaan</small
+      >
+    </div>
+  </div>
+  <div class="form-group">
+    <button
+      class="btn btn-primary"
+      type="submit"
+      *ngIf="totalSupplies > 1"
+      (click)="deleteSupply(arrayIndex)"
+    >
+      Poista
+    </button>
+  </div>
+</form>
